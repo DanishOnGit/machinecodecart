@@ -3,13 +3,16 @@ import {getFinalPrice} from "../utils/getFinalPrice";
 
 export const CartCard=({item})=>{
 
-const {state:{cartQuantity},dispatch}=useProduct();
+const {dispatch}=useProduct();
 
 const removeFromCartHandler=(item)=>{
     dispatch({type:"UPDATE_CART",payload:item})
 }
-const increaseQuantityHandler=(item,quantity)=>{
-    dispatch({type:"INCREASE_CART_QUANTITY",payload:{item,quantity}})
+const increaseQuantityHandler=(item)=>{
+    dispatch({type:"INCREASE_CART_QUANTITY",payload:item})
+}
+const decreaseQuantityHandler=(item)=>{
+    dispatch({type:"DECREASE_CART_QUANTITY",payload:item})
 }
 
     return(
@@ -27,14 +30,14 @@ const increaseQuantityHandler=(item,quantity)=>{
             <span className="discount">{item.discount}% OFF</span>
           </p>
           <button
-            // onClick={() => decreaseQuantityHandler(item, cartQuantity)}
+            onClick={() => decreaseQuantityHandler(item)}
             className="btn btn-secondary decrease"
           >
             -
           </button>{" "}
           <span className="quantity">{item.cartQuantity}</span>{" "}
           <button
-            onClick={() => increaseQuantityHandler(item,cartQuantity)}
+            onClick={() => increaseQuantityHandler(item)}
             className="btn btn-secondary increase"
           >
             +

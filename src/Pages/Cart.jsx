@@ -1,6 +1,6 @@
 import { useProduct } from "../Contexts/ProductContext";
 import { CartCard } from "../Components/CartCard";
-
+import { OrderDetails } from "../Components/OrderDetails";
 export const Cart = () => {
   const {
     state: { cart },
@@ -12,6 +12,7 @@ export const Cart = () => {
           <CartCard item={item} />
         ))}
       </ul>
+      <OrderDetails cart={cart}/>
     </div>
   );
 };
