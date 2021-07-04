@@ -12,7 +12,8 @@ export const ProductProvider=({children})=>{
         filterBy: { size: [], brand: [],idealFor:[] },
         productsList: [],
         cart:[],
-        cartQuantity:1
+        saveForLater:[],
+        // cartQuantity:1
       };
 
     const [state,dispatch]=useReducer(productReducer,initialState)

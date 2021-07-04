@@ -32,6 +32,7 @@ export const ProductCard = ({ product }) => {
         <p>{sizeArr}</p>
       </div>
       <button
+      className="btn btn-primary"
         onClick={() => {
           const result = checkIfAlreadyInCart(cart, product.id);
           if (!result) {
